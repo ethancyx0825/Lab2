@@ -1,15 +1,21 @@
 
 import math
+
 def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
     display_main_menu()
     num_list = get_user_input()
+    print(f"The median temperature is {calc_median_temperature(num_list)}")
+    print(f"The average temperature is {calc_average(num_list)}")
+    print(f"The lowest temperature is {find_min_max(num_list)[1]}")
+    print(f"The highest temperature is {find_min_max(num_list)[0]} ")
+
 
 def display_main_menu():
     print("Enter some numbers separated by commas (e.g. 5, 67,32)")
 
 def get_user_input():
-    user_input = input()
+    user_input = input("Please input a string of temperatures: ")
     input_list_strings = user_input.split(",")
     input_list_float = []
     for i in input_list_strings:
@@ -48,7 +54,8 @@ def calc_median_temperature(temp_list):
         median_index = int((0 + (len(temp_list_ascending) - 1 ) ) / 2)
         return temp_list_ascending[median_index]
         
-
+if __name__ == "__main__":
+    main()
         
 
 
