@@ -1,4 +1,5 @@
 
+import math
 def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
     display_main_menu()
@@ -30,5 +31,28 @@ def sort_temperature(temp_list):
     print("sort_temperature")
 
 def calc_median_temperature(temp_list):
-    print("calc_median_temperature")
+    temp_list_ascending = []
+    smallest = math.inf
+    for temperature in temp_list:
+        if temperature < smallest:
+            smallest = temperature
+            temp_list_ascending.append(smallest)
+    if (len(temp_list_ascending) % 2 == 0):
+        median_index1 = (len(temp_list_ascending) // 2) - 1
+        median_index2 = (len(temp_list_ascending) // 2)
+        median_bottom = temp_list_ascending[median_index1]
+        median_top = temp_list_ascending[median_index2]
+        median = (median_top + median_bottom) / 2
+        return median
+    else:
+        median_index = int((0 + (len(temp_list_ascending) - 1 ) ) / 2)
+        return temp_list_ascending[median_index]
+        
+
+        
+
+
+            
+
+
 
